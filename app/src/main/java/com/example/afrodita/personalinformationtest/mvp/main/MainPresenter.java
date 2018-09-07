@@ -32,12 +32,17 @@ public class MainPresenter implements MainContract.Presenter {
             @Override
             public void onResponse(Call<PersonModel> call, Response<PersonModel> response) {
                 PersonModel personModel = response.body();
+                if (personModel == null){
+                    view.onError();
+                    return;
+                }
                 view.onLoadedArticle(personModel);
             }
 
             @Override
             public void onFailure(Call<PersonModel> call, Throwable t) {
-
+                t.printStackTrace();
+                view.onError();
             }
         });
     }

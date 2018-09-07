@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">PersonalInformationTest</string>
     <string name="refresh">Обновить</string>
+    <string name="loading_error">Не удалось загрузить данные</string>
 </resources>

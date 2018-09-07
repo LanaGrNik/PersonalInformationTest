@@ -2,8 +2,10 @@ package com.example.afrodita.personalinformationtest.mvp.main;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.afrodita.personalinformationtest.PersonalInformationApplication;
 import com.example.afrodita.personalinformationtest.R;
@@ -31,6 +33,8 @@ public class MainActivity extends AppCompatActivity  implements MainContract.Vie
         refresh = findViewById(R.id.btnRefresh);
         presenter.onAttach(this);
         presenter.loadInformation();
+        initClickListener();
+
     }
 
     @Override
@@ -38,5 +42,19 @@ public class MainActivity extends AppCompatActivity  implements MainContract.Vie
          fullName.setText(personModel.getName());
          date.setText(personModel.getBirthday());
          description.setText(personModel.getDescription());
+    }
+
+    @Override
+    public void onError() {
+        Toast.makeText(this,R.string.loading_error,Toast.LENGTH_SHORT).show();
+    }
+
+    public void initClickListener(){
+      refresh.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+              presenter.loadInformation();
+          }
+      });
     }
 }
