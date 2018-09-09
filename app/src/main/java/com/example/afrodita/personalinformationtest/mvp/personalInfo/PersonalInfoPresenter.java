@@ -1,33 +1,33 @@
-package com.example.afrodita.personalinformationtest.mvp.main;
+package com.example.afrodita.personalinformationtest.mvp.personalInfo;
 
 
-import com.example.afrodita.personalinformationtest.api.PersonalApi;
+import com.example.afrodita.personalinformationtest.api.MainApi;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 import javax.inject.Inject;
 
-public class MainPresenter implements MainContract.Presenter {
+public class PersonalInfoPresenter implements PersonalInfoContract.Presenter {
 
-    MainContract.View view;
-    PersonalApi personalApi;
+    PersonalInfoContract.View view;
+    MainApi mainApi;
 
     @Inject
-    MainPresenter(PersonalApi personalApi){
-        this.personalApi = personalApi;
+    PersonalInfoPresenter(MainApi mainApi){
+        this.mainApi = mainApi;
 
     }
 
     @Override
-    public void onAttach(MainContract.View view) {
+    public void onAttach(PersonalInfoContract.View view) {
         this.view = view;
     }
 
     @Override
     public void loadInformation() {
 
-        Call<PersonModel> getMainInformation = personalApi.getMainInformation();
+        Call<PersonModel> getMainInformation = mainApi.getMainInformation();
         getMainInformation.enqueue(new Callback<PersonModel>() {
             @Override
             public void onResponse(Call<PersonModel> call, Response<PersonModel> response) {
@@ -36,7 +36,7 @@ public class MainPresenter implements MainContract.Presenter {
                     view.onError();
                     return;
                 }
-                view.onLoadedArticle(personModel);
+                view.onDatesLoaded(personModel);
             }
 
             @Override

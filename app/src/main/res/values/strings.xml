@@ -1,5 +1,11 @@
 <resources>
-    <string name="app_name">PersonalInformationTest</string>
+    <string name="app_name">CITest</string>
     <string name="refresh">Обновить</string>
     <string name="loading_error">Не удалось загрузить данные</string>
+    <string name="past">прошедшие</string>
+    <string name="future">предстоящие</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="task1">Задание1</string>
+    <string name="task2">Задание2</string>
+    <string name="task3">Задание3</string>
 </resources>

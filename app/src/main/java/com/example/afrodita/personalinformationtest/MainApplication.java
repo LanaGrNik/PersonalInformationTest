@@ -6,7 +6,7 @@ import com.example.afrodita.personalinformationtest.dagger.ApplicationComponent;
 import com.example.afrodita.personalinformationtest.dagger.ApplicationModule;
 import com.example.afrodita.personalinformationtest.dagger.DaggerApplicationComponent;
 
-public class PersonalInformationApplication extends Application {
+public class MainApplication extends Application {
 
     ApplicationComponent component;
 

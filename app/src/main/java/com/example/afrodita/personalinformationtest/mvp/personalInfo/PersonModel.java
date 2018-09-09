@@ -1,4 +1,4 @@
-package com.example.afrodita.personalinformationtest.mvp.main;
+package com.example.afrodita.personalinformationtest.mvp.personalInfo;
 
 public class PersonModel {
 

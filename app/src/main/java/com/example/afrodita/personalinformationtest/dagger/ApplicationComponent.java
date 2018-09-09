@@ -1,6 +1,8 @@
 package com.example.afrodita.personalinformationtest.dagger;
 
-import com.example.afrodita.personalinformationtest.mvp.main.MainActivity;
+import com.example.afrodita.personalinformationtest.mvp.birthday.BirthdayActivity;
+import com.example.afrodita.personalinformationtest.mvp.bithdaylist.BirthdayListFragment;
+import com.example.afrodita.personalinformationtest.mvp.personalInfo.PersonalInfoActivity;
 
 import javax.inject.Singleton;
 
@@ -11,6 +13,8 @@ import dagger.Component;
 
 public interface ApplicationComponent {
 
-    void inject(MainActivity mainActivity);
+    void inject(PersonalInfoActivity personalInfoActivity);
+    void inject(BirthdayActivity birthdayActivity);
+    void inject(BirthdayListFragment birthdayListFragment);
 
 }

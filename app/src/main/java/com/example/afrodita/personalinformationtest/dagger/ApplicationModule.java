@@ -2,7 +2,7 @@ package com.example.afrodita.personalinformationtest.dagger;
 
 import android.content.Context;
 
-import com.example.afrodita.personalinformationtest.api.PersonalApi;
+import com.example.afrodita.personalinformationtest.api.MainApi;
 
 import dagger.Module;
 import dagger.Provides;
@@ -25,13 +25,13 @@ public class ApplicationModule {
     }
 
     @Provides
-    public PersonalApi providePersonalApi() {
+    public MainApi providePersonalApi() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://murzinma.ru/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        return retrofit.create(PersonalApi.class);
+        return retrofit.create(MainApi.class);
     }
 
 }
