@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.view.View.OnClickListener;
 
 import com.example.afrodita.personalinformationtest.mvp.birthday.BirthdayActivity;
+import com.example.afrodita.personalinformationtest.mvp.counter.CountActivity;
 import com.example.afrodita.personalinformationtest.mvp.personalInfo.PersonalInfoActivity;
 
 public class MainActivity extends AppCompatActivity implements OnClickListener {

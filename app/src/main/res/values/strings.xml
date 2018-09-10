@@ -8,4 +8,6 @@
     <string name="task1">Задание1</string>
     <string name="task2">Задание2</string>
     <string name="task3">Задание3</string>
+    <string name="increment">+1</string>
+    <string name="decrement">-1</string>
 </resources>

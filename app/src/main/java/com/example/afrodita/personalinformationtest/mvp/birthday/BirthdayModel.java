@@ -1,6 +1,7 @@
 package com.example.afrodita.personalinformationtest.mvp.birthday;
 
 import java.sql.Time;
+import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.util.Date;
 
@@ -9,7 +10,7 @@ public class BirthdayModel {
     String time;
     String description;
 
-    public String getTime() {
+    public String getTimeString() {
         return time;
     }
 
@@ -23,5 +24,9 @@ public class BirthdayModel {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Date getTime(){
+        return new Date(Long.valueOf(time)*1000);
     }
 }

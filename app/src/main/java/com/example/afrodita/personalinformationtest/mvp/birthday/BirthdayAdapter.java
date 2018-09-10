@@ -45,8 +45,9 @@ public class BirthdayAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup parent) {
         BirthdayModel birthdayModel = getItem(i);
         view = lInflater.inflate(R.layout.list_birthday, parent, false);
+
         TextView time = view.findViewById(R.id.time);
-        time.setText(birthdayModel.time);
+        time.setText(birthdayModel.getTime().toString());
         TextView description = view.findViewById(R.id.description);
         description.setText(birthdayModel.description);
 

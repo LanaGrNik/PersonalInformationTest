@@ -21,7 +21,7 @@
         </activity>
         <activity android:name=".mvp.personalInfo.PersonalInfoActivity"></activity>
         <activity android:name=".mvp.birthday.BirthdayActivity"></activity>
-        <activity android:name=".CountActivity"></activity>
+        <activity android:name=".mvp.counter.CountActivity"></activity>
     </application>
 
 </manifest>
