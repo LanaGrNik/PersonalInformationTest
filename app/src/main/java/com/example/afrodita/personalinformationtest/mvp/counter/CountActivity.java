@@ -22,8 +22,7 @@ public class CountActivity extends AppCompatActivity implements CounterContract.
     Button decrement;
     int delta;
     ActionEnum action = ActionEnum.INCREMENT;
-    private Timer mTimer;
-    TimerTask timerTask;
+    public TimerTask timerTask;
 
 
     @Override
@@ -39,7 +38,6 @@ public class CountActivity extends AppCompatActivity implements CounterContract.
         increment.setOnClickListener(this);
         decrement.setOnClickListener(this);
         Timer timer = new Timer();
-
         timerTask = new TimerTask() {
             @Override
             public void run() {

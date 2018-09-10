@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
@@ -20,6 +21,7 @@ public class BirthdayActivity extends AppCompatActivity implements BirthdayContr
 
     @Inject
     BirthdayPresenter presenter;
+    private SwipeRefreshLayout mSwipeRefreshLayout;
 
 
     @Override
@@ -27,6 +29,15 @@ public class BirthdayActivity extends AppCompatActivity implements BirthdayContr
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_birthday);
         ((MainApplication) getApplication()).getComponent().inject(this);
+
+        mSwipeRefreshLayout = findViewById(R.id.swipe_container);
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                presenter.loadDates();
+            }
+        });
+
         presenter.onAttach(this);
         presenter.loadDates();
 
@@ -43,11 +54,12 @@ public class BirthdayActivity extends AppCompatActivity implements BirthdayContr
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
-
+        mSwipeRefreshLayout.setRefreshing(false);
     }
 
     @Override
     public void onError() {
+        mSwipeRefreshLayout.setRefreshing(false);
         Toast.makeText(this,R.string.loading_error,Toast.LENGTH_SHORT).show();
 
     }
