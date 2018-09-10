@@ -6,13 +6,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.view.View.OnClickListener;
-
+import android.widget.Toast;
 import com.example.afrodita.personalinformationtest.MainApplication;
 import com.example.afrodita.personalinformationtest.R;
-
 import java.util.Timer;
 import java.util.TimerTask;
-
 import javax.inject.Inject;
 
 public class CountActivity extends AppCompatActivity implements CounterContract.View, OnClickListener {
@@ -38,20 +36,20 @@ public class CountActivity extends AppCompatActivity implements CounterContract.
         increment = findViewById(R.id.btnIncrement);
         decrement = findViewById(R.id.btnDecrement);
         presenter.onAttach(this);
-        presenter.onLoadCount(delta,action);
         increment.setOnClickListener(this);
         decrement.setOnClickListener(this);
-/*        Timer timer = new Timer();
+        Timer timer = new Timer();
 
         timerTask = new TimerTask() {
             @Override
             public void run() {
+                delta = Math.abs(delta);
                 presenter.onLoadCount(delta,action);
                 delta = 0;
             }
 
         };
-        timer.schedule(timerTask, 1000);*/
+        timer.schedule(timerTask, 0,1000);
     }
 
     @Override
@@ -77,7 +75,7 @@ public class CountActivity extends AppCompatActivity implements CounterContract.
 
     @Override
     public void onError() {
-
+        Toast.makeText(this,R.string.loading_error,Toast.LENGTH_SHORT).show();
     }
 
 

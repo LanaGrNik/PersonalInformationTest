@@ -1,7 +1,6 @@
 package com.example.afrodita.personalinformationtest.mvp.counter;
 
-import com.example.afrodita.personalinformationtest.mvp.personalInfo.PersonModel;
-import com.example.afrodita.personalinformationtest.mvp.personalInfo.PersonalInfoContract;
+
 
 public interface CounterContract {
 
