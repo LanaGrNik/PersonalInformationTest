@@ -6,10 +6,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.afrodita.personalinformationtest.MainApplication;
 import com.example.afrodita.personalinformationtest.R;
-
 import javax.inject.Inject;
 
 public class PersonalInfoActivity extends AppCompatActivity  implements PersonalInfoContract.View{
@@ -34,16 +32,13 @@ public class PersonalInfoActivity extends AppCompatActivity  implements Personal
         presenter.onAttach(this);
         presenter.loadInformation();
         initClickListener();
-
     }
-
 
     @Override
     public void onDatesLoaded(PersonModel personModel) {
         fullName.setText(personModel.getName());
         date.setText(personModel.getBirthday());
         description.setText(personModel.getDescription());
-
     }
 
     @Override

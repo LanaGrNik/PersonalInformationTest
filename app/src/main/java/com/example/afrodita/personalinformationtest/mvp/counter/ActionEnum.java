@@ -4,7 +4,6 @@ public enum ActionEnum {
 
     INCREMENT("increment"),
     DECREMENT("decrement");
-
     String action;
 
     ActionEnum(String action) {

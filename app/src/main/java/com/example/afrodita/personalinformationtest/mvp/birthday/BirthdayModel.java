@@ -1,8 +1,6 @@
 package com.example.afrodita.personalinformationtest.mvp.birthday;
 
-import java.sql.Time;
-import java.sql.Timestamp;
-import java.text.DateFormat;
+
 import java.util.Date;
 
 public class BirthdayModel {

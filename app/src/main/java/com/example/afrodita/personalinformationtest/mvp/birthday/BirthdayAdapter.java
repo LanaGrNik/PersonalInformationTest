@@ -10,8 +10,6 @@ import android.widget.TextView;
 import com.example.afrodita.personalinformationtest.R;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class BirthdayAdapter extends BaseAdapter {
 
@@ -24,7 +22,6 @@ public class BirthdayAdapter extends BaseAdapter {
     long diffDays;
     long timeUp;
     long diff;
-
 
     public BirthdayAdapter(Context context, List<BirthdayModel> list) {
         this.context = context;
@@ -52,17 +49,9 @@ public class BirthdayAdapter extends BaseAdapter {
         BirthdayModel birthdayModel = getItem(i);
         view = lInflater.inflate(R.layout.list_birthday, parent, false);
         timeUp = birthdayModel.getTime().getTime();
-        /*Timer timer = new Timer();
-        TimerTask timerTask = new TimerTask() {
-            @Override
-            public void run() {
-
-            }
-        };*/
         TextView time = view.findViewById(R.id.time);
         onTimeConverter(diffSeconds,diffMinutes,diffHours,diffDays);
         time.setText(diffDays + ":" + diffHours + ":" + diffMinutes + ":" + diffSeconds);
-      //  timer.schedule(timerTask, 0,1000);
         TextView description = view.findViewById(R.id.description);
         description.setText(birthdayModel.description);
 

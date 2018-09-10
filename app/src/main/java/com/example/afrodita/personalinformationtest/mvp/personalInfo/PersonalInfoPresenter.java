@@ -5,7 +5,6 @@ import com.example.afrodita.personalinformationtest.api.MainApi;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
 import javax.inject.Inject;
 
 public class PersonalInfoPresenter implements PersonalInfoContract.Presenter {

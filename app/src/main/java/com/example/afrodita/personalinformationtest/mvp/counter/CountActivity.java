@@ -24,13 +24,11 @@ public class CountActivity extends AppCompatActivity implements CounterContract.
     ActionEnum action = ActionEnum.INCREMENT;
     public TimerTask timerTask;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_count);
         ((MainApplication) getApplication()).getComponent().inject(this);
-
         counter = findViewById(R.id.tvCounter);
         increment = findViewById(R.id.btnIncrement);
         decrement = findViewById(R.id.btnDecrement);
@@ -67,14 +65,10 @@ public class CountActivity extends AppCompatActivity implements CounterContract.
     public void onLoadedCount(CountResponse count) {
 
         counter.setText(String.valueOf(count.getValue()));
-
-
     }
 
     @Override
     public void onError() {
         Toast.makeText(this,R.string.loading_error,Toast.LENGTH_SHORT).show();
     }
-
-
 }

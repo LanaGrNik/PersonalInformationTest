@@ -13,10 +13,8 @@ import dagger.Component;
 @Component(modules = ApplicationModule.class)
 
 public interface ApplicationComponent {
-
     void inject(PersonalInfoActivity personalInfoActivity);
     void inject(BirthdayActivity birthdayActivity);
     void inject(BirthdayListFragment birthdayListFragment);
     void inject(CountActivity countActivity);
-
 }

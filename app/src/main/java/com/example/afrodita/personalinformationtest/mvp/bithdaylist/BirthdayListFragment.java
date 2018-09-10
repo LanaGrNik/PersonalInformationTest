@@ -9,13 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import com.example.afrodita.personalinformationtest.MainApplication;
 import com.example.afrodita.personalinformationtest.R;
 import com.example.afrodita.personalinformationtest.mvp.birthday.BirthdayAdapter;
 import com.example.afrodita.personalinformationtest.mvp.birthday.BirthdayModel;
 import java.util.List;
-
+import java.util.Timer;
+import java.util.TimerTask;
 import javax.inject.Inject;
 
 public class BirthdayListFragment extends Fragment implements BirthdayListContract.View {
@@ -40,11 +40,25 @@ public class BirthdayListFragment extends Fragment implements BirthdayListContra
         presenter.loadDates(position);
     }
 
-
     @Override
     public void dates(List<BirthdayModel> datesList) {
         adapter = new BirthdayAdapter(getContext(), datesList);
         listView.setAdapter(adapter);
+        Timer timer = new Timer();
+        TimerTask timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                BirthdayListFragment.this.getActivity().runOnUiThread(
+                        new Runnable() {
+                            @Override
+                            public void run() {
+                                adapter.notifyDataSetChanged();
+                            }
+                        }
+                );
+            }
+        };
+        timer.schedule(timerTask, 0,1000);
     }
 
     @Override

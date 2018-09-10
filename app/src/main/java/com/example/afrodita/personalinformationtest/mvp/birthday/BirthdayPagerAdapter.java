@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-
 import com.example.afrodita.personalinformationtest.R;
 import com.example.afrodita.personalinformationtest.mvp.bithdaylist.BirthdayListFragment;
 
@@ -25,7 +24,6 @@ public class BirthdayPagerAdapter extends FragmentPagerAdapter {
         switch (position) {
             case 0: return getString(R.string.past);
             default: return getString(R.string.future);
-
         }
     }
 

@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.view.View.OnClickListener;
-
 import com.example.afrodita.personalinformationtest.mvp.birthday.BirthdayActivity;
 import com.example.afrodita.personalinformationtest.mvp.counter.CountActivity;
 import com.example.afrodita.personalinformationtest.mvp.personalInfo.PersonalInfoActivity;
@@ -25,8 +24,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         task1.setOnClickListener(this);
         task2.setOnClickListener(this);
         task3.setOnClickListener(this);
-
-
     }
     @Override
     public void onClick(View view){

@@ -2,7 +2,6 @@ package com.example.afrodita.personalinformationtest.mvp.birthday;
 
 
 import com.example.afrodita.personalinformationtest.api.MainApi;
-import com.example.afrodita.personalinformationtest.mvp.personalInfo.PersonalInfoContract;
 
 import javax.inject.Inject;
 
@@ -12,16 +11,14 @@ import retrofit2.Response;
 
 public class BirthdayPresenter implements BirthdayContract.Presenter {
 
-
     BirthdayRepository birthdayRepository;
     BirthdayContract.View view;
     MainApi mainApi;
 
     @Inject
-    BirthdayPresenter(MainApi mainApi, BirthdayRepository birthdayRepository){
+    BirthdayPresenter(MainApi mainApi, BirthdayRepository birthdayRepository) {
         this.mainApi = mainApi;
         this.birthdayRepository = birthdayRepository;
-
     }
 
     @Override
@@ -31,19 +28,18 @@ public class BirthdayPresenter implements BirthdayContract.Presenter {
 
     @Override
     public void loadDates() {
-    final Call<DatesArrayModel> dates = mainApi.dates() ;
+        final Call<DatesArrayModel> dates = mainApi.dates();
 
         dates.enqueue(new Callback<DatesArrayModel>() {
             @Override
             public void onResponse(Call<DatesArrayModel> call, Response<DatesArrayModel> response) {
                 DatesArrayModel datesArrayModel = response.body();
-                if (datesArrayModel == null){
+                if (datesArrayModel == null) {
                     view.onError();
                     return;
                 }
                 birthdayRepository.setDates(datesArrayModel);
                 view.onDatesLoaded();
-
             }
 
             @Override

@@ -21,7 +21,6 @@ public class BirthdayListPresenter implements BirthdayListContract.Presenter {
     @Override
     public void onAttach(BirthdayListContract.View view) {
         this.view = view;
-
     }
 
     @Override
@@ -33,7 +32,5 @@ public class BirthdayListPresenter implements BirthdayListContract.Presenter {
             dateList.addAll(birthdayRepository.getFutureList());
         }
         view.dates(dateList);
-
-
     }
 }

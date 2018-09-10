@@ -30,8 +30,6 @@ public class ApplicationModule {
                 .baseUrl("http://murzinma.ru/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-
         return retrofit.create(MainApi.class);
     }
-
 }
